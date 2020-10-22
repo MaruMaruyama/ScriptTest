@@ -4,18 +4,14 @@ using UnityEngine;
 
 public class Test : MonoBehaviour
 {
-   int Add(int a, int b)
+   void GoodBye()
    {
-       int ret;
-       ret=a+b;
-       return ret;
+       Debug.Log("Goodbye, UnityChan");
    } 
     // Start is called before the first frame update
     void Start()
     {
-        int answer;
-        answer= Add(5,7);
-        Debug.Log(answer);
+        GoodBye();
     }
     // Update is called once per frame
     void Update()
