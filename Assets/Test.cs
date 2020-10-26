@@ -21,14 +21,15 @@ using UnityEngine;
            this.hp -= damage;
        }
         //発展課題で使用するMagic関数
-       public void Magic(int turn)
+       public void Magic(int numMp)
        {
-           for(int l = 0; l < turn ; l++){
-               if(mp >= 5){
-                   mp -= 5;
+           int counter = mp / numMp;
+           for(int l = 0; l <= counter ; l++){
+               if(this.mp >= numMp){
+                   this.mp -= numMp;
                    Debug.Log("魔法攻撃をした。残りMPは" + this.mp + "。");
                }else{
-                   Debug.Log("MPが足りない！");
+                   Debug.Log("MPが足りないため魔法が使えない。");
                }  
             }
         }
@@ -47,11 +48,10 @@ public class Test : MonoBehaviour
         for (int i = array.Length - 1; i >= 0; i--){
             Debug.Log(array[i]);
         }
-        //発展課題用 testbossインスタンスにボスクラスを入れています
+        //発展課題用 testboss インスタンスにボスクラスを入れています
         Boss testboss = new Boss();
-        //ターン数を引数に入れています。戻り値はなし。
-            testboss.Magic(10);
-            testboss.Magic(1);
+        //消費 MP を引数に入れています。戻り値はなし。
+            testboss.Magic(5);
     }
     // Update is called once per frame
     void Update()
